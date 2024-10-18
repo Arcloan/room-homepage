@@ -1,0 +1,187 @@
+*,
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+main {
+    display: grid;
+    place-items: center;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.arrows-desktop {
+    display: none;
+}
+
+.c-slider-desktop {
+    display: none;
+}
+
+.c-slider-mobile {
+    position: relative;
+    background-image: url(images/mobile-image-hero-1.jpg);
+    background-size: cover;
+    background-position: bottom;
+    min-height: 45vh;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    padding: 3rem 2rem; 
+
+    & img:nth-child(2) {
+        margin-inline: auto;
+    }
+}
+
+.arrows {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+    gap: 1rem;
+}
+
+.arrows > img {
+    place-self: center;
+    padding: 1rem;
+}
+
+.c-company-description {
+    padding: 3rem 2rem;
+
+    & > h2 {
+        font-size: 2rem;
+    }
+
+    & > p {
+        margin-block-end: 1.5rem;
+        margin-block-start: 1rem;
+    }
+
+    @media (min-width : 1000px) {
+        padding: 5rem 5rem;
+    }
+}
+
+.shop-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & > p {
+        letter-spacing: 0.5rem;
+    }
+}
+
+.c-furniture-description {
+    padding: 2rem 2rem;
+
+    & > h3 {
+        letter-spacing: 0.25rem;
+        font-size: 1rem;
+    }
+
+    & > p {
+        margin-block-start: 1.5rem;
+    }
+
+    @media (min-width : 1000px) {
+        padding: 3rem 2rem;
+    }
+}
+
+.image-dark > img, .image-light > img {
+    width: 100%;
+}
+
+@media (min-width : 1000px) {
+    .c-slider-mobile {
+        display: none;
+    }
+
+    .c-slider-desktop {
+        display: block;
+    }
+
+    .arrows-desktop {
+        display: block;
+    }
+
+    main {
+        max-width: 90%;
+        max-height: 80%;
+    }
+
+    .l-container {
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        position: relative;
+    }
+
+    .c-slider-desktop {
+        background-image: url(images/desktop-image-hero-1.jpg);
+        background-size: cover;
+        grid-column: span 7;
+        grid-row: span 2;
+    }
+
+    .c-company-description {
+        grid-column: span 4;
+        grid-row: span 2;
+        place-self: center;
+    }
+
+    .image-dark {
+        grid-column: span 3;
+    }
+
+    .c-furniture-description {
+        grid-column: span 5;
+    }
+
+    .image-light {
+        grid-column: span 3;
+    }
+
+    .arrows-desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 1rem;
+        grid-column: 8 / 9;
+        grid-row: 2 / 3;
+        background-color: black;
+        align-self: end;
+        position: absolute;
+        width: 100%;
+
+        & > * {
+            place-self: center;
+        }
+    }
+}
