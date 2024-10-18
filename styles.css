@@ -9,10 +9,6 @@
     padding: 0;
 }
 
-.hidden {
-    display: none;
-}
-
 body {
     min-height: 100dvh;
     display: grid;
@@ -43,6 +39,12 @@ img {
     background-size: cover;
     background-position: bottom;
     min-height: 45vh;
+    transition: background-image 500ms ease-in-out;
+    transition-behavior: allow-discrete;
+
+    & img:first-child {
+        cursor: pointer;
+    }
 }
 
 .menu {
@@ -65,7 +67,7 @@ img {
     gap: 1rem;
 }
 
-.arrows > img {
+.arrows > div {
     place-self: center;
     padding: 1rem;
 }
@@ -114,8 +116,45 @@ img {
     }
 }
 
+.primary-navigation-mobile {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    padding: 3rem 2rem;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+
+    & img {
+        cursor: pointer;
+    }
+
+    & ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+
+        & a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+    }
+}
+
 .image-dark > img, .image-light > img {
     width: 100%;
+}
+
+.shop-link:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 @media (min-width : 1000px) {
@@ -148,6 +187,55 @@ img {
         background-size: cover;
         grid-column: span 7;
         grid-row: span 2;
+
+        & .primary-navigation {
+            display: flex;
+            gap: 3rem;
+            position: relative;
+            top: 4rem;
+            left: 3rem;
+            align-items: center;
+        }
+
+        & ul{
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+
+            & li {
+                padding: 1rem;
+                position: relative; 
+                
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    height: 1px;
+                    width: 50%;
+                    translate: -50%;
+                    background-color: white;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 350ms ease-out;
+                }
+
+                &:has(a:hover)::after{
+                    transform: scaleX(1);
+                }
+            }
+
+
+            & a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
     }
 
     .c-company-description {
