@@ -1,3 +1,10 @@
+:root {
+    --dark-gray: hsl(0, 0%, 63%);
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --very-dark-gray: hsl(0, 0%, 27%);
+}
+
 *,
 *::before, 
 *::after {
@@ -13,6 +20,7 @@ body {
     min-height: 100dvh;
     display: grid;
     place-items: center;
+    font-family: "League Spartan";
 }
 
 main {
@@ -23,6 +31,14 @@ main {
 img {
     display: block;
     max-width: 100%;
+}
+
+p {
+    color: var(--very-dark-gray);
+}
+
+h2, h3 {
+    color: var(--black);
 }
 
 .arrows-desktop {
@@ -70,10 +86,15 @@ img {
 .arrows > div {
     place-self: center;
     padding: 1rem;
+
+    &:hover {
+        background-color: var(--dark-gray);
+    }
 }
 
 .c-company-description {
     padding: 3rem 2rem;
+    transition: opacity 350ms ease-out;
 
     & > h2 {
         font-size: 2rem;
@@ -87,6 +108,11 @@ img {
     @media (min-width : 1000px) {
         padding: 5rem 5rem;
     }
+}
+
+.second, .third {
+    position: absolute;
+    inset: 0;
 }
 
 .shop-link {
@@ -153,11 +179,21 @@ img {
     cursor: pointer;
 }
 
+.l-company-description {
+    position: relative;
+}
+
 .hidden {
     display: none;
+    opacity: 0;
+}
+
+.fade-out {
+    opacity: 0;
 }
 
 @media (min-width : 1000px) {
+
     .c-slider-mobile {
         display: none;
     }
@@ -168,6 +204,7 @@ img {
 
     .arrows-desktop {
         display: block;
+        z-index: 1;
     }
 
     main {
@@ -238,9 +275,9 @@ img {
         }
     }
 
-    .c-company-description {
-        grid-column: span 4;
-        grid-row: span 2;
+    .l-company-description {
+        grid-column: 8 / -1;
+        grid-row: 1 / 3;
         place-self: center;
     }
 
